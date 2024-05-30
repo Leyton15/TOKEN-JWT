@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <i class="fas fa-h1">Token JWT</i>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['home']">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['protegida']">Protegida</a>
+                </li>
+            </ul>
+            <ng-container *ngIf="comprobar() else logout">
+                <p style="font-size: x-large; color: aliceblue; padding-right: 20px;">Bienvenido, {{ username }}!</p>
+                <button class="btn btn-outline-primary" (click)="salir()" [routerLink]="['home']">
+                    Log out
+                </button>
+            </ng-container>
+            <ng-template #logout>
+                <button class="btn btn-outline-primary" [routerLink]="['login']">Log in</button>
+            </ng-template>
+
+        </div>
+    </div>
+</nav>
